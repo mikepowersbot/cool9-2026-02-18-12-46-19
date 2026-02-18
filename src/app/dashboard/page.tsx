@@ -3,6 +3,30 @@
 import React from 'react';
 
 export default function DashboardPage() {
+  const activities = [
+    {
+      id: 1,
+      title: 'New user registration',
+      time: '2 minutes ago',
+      status: 'Completed',
+      statusColor: 'bg-green-100 text-green-800',
+    },
+    {
+      id: 2,
+      title: 'Payment processed',
+      time: '15 minutes ago',
+      status: 'Success',
+      statusColor: 'bg-blue-100 text-blue-800',
+    },
+    {
+      id: 3,
+      title: 'Report generated',
+      time: '1 hour ago',
+      status: 'Ready',
+      statusColor: 'bg-purple-100 text-purple-800',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-7xl mx-auto">
@@ -33,45 +57,25 @@ export default function DashboardPage() {
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Recent Activity</h2>
           <div className="space-y-4">
-            <div className="flex items-center justify-between py-2 border-b">
-              <div>
-                <p className="font-medium text-gray-800">New user registration</p>
-                <p className="text-sm text-gray-500">2 minutes ago</p>
+            {activities.map((activity) => (
+              <div key={activity.id} className="flex items-center justify-between py-2 border-b">
+                <div>
+                  <p className="font-medium text-gray-800">{activity.title}</p>
+                  <p className="text-sm text-gray-500">{activity.time}</p>
+                </div>
+                <span className={`px-3 py-1 ${activity.statusColor} rounded-full text-sm`}>{activity.status}</span>
               </div>
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Completed</span>
-            </div>
-            <div className="flex items-center justify-between py-2 border-b">
-              <div>
-                <p className="font-medium text-gray-800">Payment processed</p>
-                <p className="text-sm text-gray-500">15 minutes ago</p>
-              </div>
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Success</span>
-            </div>
-            <div className="flex items-center justify-between py-2 border-b">
-              <div>
-                <p className="font-medium text-gray-800">Report generated</p>
-                <p className="text-sm text-gray-500">1 hour ago</p>
-              </div>
-              <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Ready</span>
-            </div>
+            ))}
           </div>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <button className="p-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg font-medium transition">
-              Create Report
-            </button>
-            <button className="p-4 bg-green-50 hover:bg-green-100 text-green-700 rounded-lg font-medium transition">
-              Add User
-            </button>
-            <button className="p-4 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-lg font-medium transition">
-              View Analytics
-            </button>
-            <button className="p-4 bg-orange-50 hover:bg-orange-100 text-orange-700 rounded-lg font-medium transition">
-              Export Data
-            </button>
+            <button className="p-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg font-medium transition">Create Report</button>
+            <button className="p-4 bg-green-50 hover:bg-green-100 text-green-700 rounded-lg font-medium transition">Add User</button>
+            <button className="p-4 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-lg font-medium transition">View Analytics</button>
+            <button className="p-4 bg-orange-50 hover:bg-orange-100 text-orange-700 rounded-lg font-medium transition">Export Data</button>
           </div>
         </div>
       </div>
