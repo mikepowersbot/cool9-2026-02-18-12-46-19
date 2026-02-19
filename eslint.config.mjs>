@@ -1,0 +1,22 @@
+<parameter=content>
+import { defineConfig, globalIgnores } from "eslint/config";
+import next from "next";
+
+const eslintConfig = defineConfig([
+  ...next.dist.configs['core-web-vitals'],
+  ...next.dist.configs['typescript'],
+  // Override default ignores of next.js.
+  globalIgnores([
+    // Default ignores:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+
+</parameter>
+</function>
+</tool_call>
